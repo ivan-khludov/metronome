@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: metronome main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/metronome/issues\n"
 "POT-Creation-Date: 2024-10-15 09:47+0000\n"
-"PO-Revision-Date: 2026-03-15 12:44+0500\n"
+"PO-Revision-Date: 2026-08-22 08:48+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <Kazakh>\n"
 "Language: kk\n"
@@ -27,8 +27,7 @@ msgstr "Метроном"
 msgid "Keep the tempo"
 msgstr "Темпті сақтау"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.adrienplazas.Metronome.desktop.in.in:9
 msgid "Bar;Beats;BPM;Measure;Minute;Practice;Rhythm;Tap;Tempo;Time;"
 msgstr "Такт;Соққылар;BPM;Өлшем;Минут;Жаттығу;Ырғақ;Түрту;Темп;Уақыт;"
@@ -38,8 +37,8 @@ msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minute."
 msgstr ""
-"Метроном сіз үшін ырғақты соғады, сізге тек қажетті өлшем мен минутына "
-"соққы санын көрсету керек."
+"Метроном сіз үшін ырғақты соғады, сізге тек қажетті өлшем мен минутына соққы "
+"санын көрсету керек."
 
 #: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
 msgid ""
@@ -54,6 +53,12 @@ msgstr "Негізгі терезе"
 #: data/com.adrienplazas.Metronome.metainfo.xml.in.in:24
 msgid "Main window, narrow and running"
 msgstr "Негізгі терезе, тар және орындалып тұрған"
+
+#. developer_name tag deprecated with Appstream 1.0
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:100
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:102
+msgid "Adrien Plazas"
+msgstr "Adrien Plazas"
 
 #: data/com.adrienplazas.Metronome.gschema.xml.in:6
 #: data/com.adrienplazas.Metronome.gschema.xml.in:7
@@ -189,17 +194,15 @@ msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minutes.\n"
 msgstr ""
-"Метроном сіз үшін ырғақты соғады, сізге тек қажетті өлшем мен минутына "
-"соққы санын көрсету керек.\n"
+"Метроном сіз үшін ырғақты соғады, сізге тек қажетті өлшем мен минутына соққы "
+"санын көрсету керек.\n"
 
 #: src/application.rs:125
 msgid ""
 "You can also tap to let the application guess the required beats per minute"
-msgstr ""
-"Сондай-ақ, бағдарлама қажетті соққы санын анықтауы үшін түртуге болады"
+msgstr "Сондай-ақ, бағдарлама қажетті соққы санын анықтауы үшін түртуге болады"
 
-#. Translators: Please enter your credits here (format: "Name
-#. https://example.com" or "Name <email@example.com>", no quotes)
+#. Translators: Please enter your credits here (format: "Name https://example.com" or "Name <email@example.com>", no quotes)
 #: src/application.rs:143
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
