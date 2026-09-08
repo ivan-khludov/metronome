@@ -1,15 +1,15 @@
 # Hungarian translation for metronome.
-# Copyright (C) 2022, 2023, 2024 Free Software Foundation, Inc.
+# Copyright (C) 2022, 2023, 2024, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the metronome package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2022, 2023, 2024.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2022, 2023, 2024, 2026.
 # Balázs Meskó <mesko.balazs at fsf dot hu>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: metronome master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/metronome/-/issues\n"
-"POT-Creation-Date: 2024-01-06 20:40+0000\n"
-"PO-Revision-Date: 2024-03-02 20:25+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/metronome/issues\n"
+"POT-Creation-Date: 2024-10-15 09:47+0000\n"
+"PO-Revision-Date: 2026-09-08 18:00+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
+#: data/com.adrienplazas.Metronome.desktop.in.in:2
 #: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7 src/main.rs:25
 msgid "Metronome"
 msgstr "Metronóm"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:4
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8 src/application.rs:120
+#: data/com.adrienplazas.Metronome.desktop.in.in:3
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8 src/application.rs:121
 msgid "Keep the tempo"
 msgstr "A tempó tartása"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:10
+#: data/com.adrienplazas.Metronome.desktop.in.in:9
 msgid "Bar;Beats;BPM;Measure;Minute;Practice;Rhythm;Tap;Tempo;Time;"
 msgstr "Ütem;Ütés;BPM;Mérés;Perc;Gyakorlás;Ritmus;Kopogás;Tempó;Idő;"
 
@@ -49,13 +49,19 @@ msgstr ""
 "Kopoghat is ahhoz, hogy az alkalmazás kitalálja a kívánt percenkénti "
 "ütésszámot."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:16
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
 msgid "Main window"
 msgstr "Főablak"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:24
 msgid "Main window, narrow and running"
 msgstr "Főablak, keskeny és fut"
+
+#. developer_name tag deprecated with Appstream 1.0
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:100
+#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:102
+msgid "Adrien Plazas"
+msgstr "Adrien Plazas"
 
 #: data/com.adrienplazas.Metronome.gschema.xml.in:6
 #: data/com.adrienplazas.Metronome.gschema.xml.in:7
@@ -186,10 +192,7 @@ msgstr "KOPOGÁS"
 msgid "Main Menu"
 msgstr "Főmenü"
 
-#: src/application.rs:122
-#| msgid ""
-#| "Metronome beats the rhythm for you, you simply need to tell it the "
-#| "required time signature and beats per minute."
+#: src/application.rs:123
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minutes.\n"
@@ -197,17 +200,14 @@ msgstr ""
 "A Metronóm üti Önnek a ritmust, egyszerűen csak meg kell mondania neki a "
 "kívánt ütemmértéket és a percenkénti ütemeket.\n"
 
-#: src/application.rs:124
-#| msgid ""
-#| "You can also tap to let the application guess the required beats per "
-#| "minute."
+#: src/application.rs:125
 msgid ""
 "You can also tap to let the application guess the required beats per minute"
 msgstr ""
-"Kopoghat is ahhoz, hogy az alkalmazás kitalálja a kívánt percenkénti"
-" ütésszámot"
+"Kopoghat is ahhoz, hogy az alkalmazás kitalálja a kívánt percenkénti "
+"ütésszámot"
 
 #. Translators: Please enter your credits here (format: "Name https://example.com" or "Name <email@example.com>", no quotes)
-#: src/application.rs:144
+#: src/application.rs:143
 msgid "translator-credits"
 msgstr "Úr Balázs <ur dot balazs at fsf dot hu>, 2024."
