@@ -25,6 +25,11 @@
   <url type="vcs-browser">https://github.com/ivan-khludov/metronome</url>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="2.0.3" date="2026-11-13">
+      <description>
+        <p>Place each click on the audio sample clock so the tempo stays steady.</p>
+      </description>
+    </release>
     <release version="2.0.2" date="2026-11-13">
       <description>
         <p>Ship the Inter and JetBrains Mono license texts with the application.</p>

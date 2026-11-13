@@ -1,7 +1,7 @@
 mod application;
-#[rustfmt::skip]
-mod clicker;
+mod audio_out;
 mod config;
+mod engine;
 mod meter;
 mod timer;
 mod timerbutton;
