@@ -1,140 +1,729 @@
-window.application {
-  min-height: 360px;
-  min-width: 360px;
+window.metronome,
+window.meter-editor,
+window.tempo-presets,
+window.help-dialog {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #f3f4f6;
+  font-family: Inter, sans-serif;
 }
 
-.time-signature {
-  margin: 0 12px 18px 12px;
+window.metronome {
+  min-height: 0;
+  min-width: 478px;
 }
 
-.time-signature> :not(:last-child) {
-  margin-right: 18px;
+window.metronome button,
+window.meter-editor button,
+window.tempo-presets button,
+window.help-dialog button,
+window.metronome menubutton,
+window.tempo-presets menubutton {
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  min-height: 0;
+  min-width: 0;
+  outline: none;
+  padding: 0;
+}
+
+window.metronome button:focus,
+window.meter-editor button:focus,
+window.tempo-presets button:focus,
+window.help-dialog button:focus,
+window.metronome scale:focus {
+  outline: none;
+}
+
+button,
+button *,
+menubutton,
+menubutton * {
+  cursor: pointer;
+}
+
+window.metronome .titlebar,
+window.metronome headerbar {
+  background-color: #202228;
+  box-shadow: none;
+  min-height: 0;
+  padding: 0;
+}
+
+window.metronome headerbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.048);
+  color: #d1d5db;
+  padding: 12px 16px;
+}
+
+window.metronome:backdrop headerbar,
+window.metronome:backdrop .titlebar {
+  background-color: #202228;
+  color: #d1d5db;
+}
+
+.window-dimmer {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.title-dot {
+  background-color: rgba(0, 180, 197, 0.8);
+  border-radius: 100%;
+  min-height: 12px;
+  min-width: 12px;
+}
+
+window.metronome headerbar .window-title {
+  color: #d1d5db;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+window.metronome button.help-button {
+  border-radius: 100%;
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0;
+}
+
+window.metronome button.help-button:hover {
+  background-color: #31343e;
+  color: #00b4c5;
+}
+
+.window-controls {
+  border-left: 1px solid rgba(255, 255, 255, 0.048);
+  margin-left: 4px;
+  padding-left: 8px;
+}
+
+window.metronome button.window-control {
+  border-radius: 100%;
+  color: #9ca3af;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+}
+
+window.metronome button.window-control image {
+  -gtk-icon-size: 16px;
+}
+
+window.metronome button.window-control:hover {
+  background-color: #31343e;
+  color: #e5e7eb;
+}
+
+window.metronome button.window-control.close:hover {
+  background-color: rgba(229, 72, 77, 0.2);
+  color: #f2555a;
+}
+
+.app-column {
+  overflow: visible;
+  padding: 28px;
+}
+
+.section-label {
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+window.metronome button.meter-tile {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #d1d5db;
+  min-height: 56px;
+  padding: 4px;
+}
+
+window.metronome button.meter-tile label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.meter-rule {
+  background-color: #6b7280;
+  border-radius: 1px;
+  margin: 2px 0;
+  min-height: 1.5px;
+  min-width: 14px;
+}
+
+window.metronome button.meter-tile:hover {
+  background-color: #31343e;
+}
+
+window.metronome button.meter-tile:checked,
+window.metronome button.meter-tile:checked:hover {
+  background-color: #00b4c5;
+  border-color: #00b4c5;
+  box-shadow: 0 10px 15px -3px rgba(0, 180, 197, 0.2);
+  color: #030712;
+}
+
+window.metronome button.meter-tile:checked label {
+  font-weight: 700;
+}
+
+window.metronome button.meter-tile:checked .meter-rule {
+  background-color: rgba(3, 7, 18, 0.6);
+}
+
+window.metronome button.meter-add {
+  background-color: rgba(39, 41, 48, 0.4);
+  border: 1px dashed #4b5563;
+  border-radius: 12px;
+  color: #9ca3af;
+  min-height: 56px;
+}
+
+window.metronome button.meter-add image {
+  -gtk-icon-size: 20px;
+}
+
+window.metronome button.meter-add:hover {
+  background-color: #31343e;
+  border-color: #00b4c5;
+  color: #00b4c5;
+}
+
+.tempo-card {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+window.metronome button.tempo-marking {
+  background-color: #202228;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+window.metronome button.tempo-marking:hover {
+  background-color: #31343e;
+}
+
+window.metronome button.tempo-marking label {
+  color: #00b4c5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+window.metronome button.tempo-marking image {
+  -gtk-icon-size: 12px;
+}
+
+.bpm-row {
+  padding: 0 8px;
+}
+
+window.metronome button.bpm-step {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  color: #e5e7eb;
+  font-size: 24px;
+  font-weight: 700;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+window.metronome button.bpm-step:hover {
+  background-color: #31343e;
+  color: white;
+}
+
+label.bpm-value {
+  color: white;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+label.bpm-caption {
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-top: -4px;
+  text-transform: uppercase;
+}
+
+window.metronome .tempo-card scale {
+  margin-top: 4px;
+  min-height: 0;
+  padding: 0;
+}
+
+window.metronome .tempo-card scale trough {
+  background-color: #363944;
+  border-radius: 3px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  min-height: 6px;
+}
+
+window.metronome .tempo-card scale trough highlight {
+  background-color: #00b4c5;
+  border-radius: 3px;
+  min-height: 6px;
+}
+
+window.metronome .tempo-card scale slider {
+  background-color: white;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  margin: -6px;
+  min-height: 18px;
+  min-width: 18px;
+  padding: 0;
+}
+
+window.metronome .tempo-card scale slider:active {
+  background-color: #00b4c5;
+}
+
+window.metronome .tempo-card scale mark indicator {
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+}
+
+window.metronome .tempo-card scale mark label {
+  color: #9ca3af;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 8px;
+  min-height: 0;
+  padding: 0;
 }
 
 .controls {
-  margin: 18px 12px 0 12px;
+  overflow: visible;
+  padding: 4px 16px 0 16px;
 }
 
-.controls> :not(:last-child) {
-  margin-right: 36px;
+window.metronome button.transport {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  color: #d1d5db;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  min-height: 56px;
+  min-width: 56px;
+  text-transform: uppercase;
 }
 
-button.large,
-menubutton.large {
-  min-height: 50px;
-  min-width: 50px;
+window.metronome button.transport:hover {
+  background-color: #31343e;
+  color: white;
 }
 
-button.large label {
-  font-weight: bold;
+window.metronome button.transport image {
+  -gtk-icon-size: 24px;
 }
 
-.display {
-  margin: 0 12px;
-  transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+window.metronome timerbutton {
+  background-color: transparent;
+  min-height: 80px;
+  min-width: 80px;
+  overflow: visible;
 }
 
-.display.small {
-  border-radius: 0;
+window.metronome timerbutton stack {
+  background: none;
   margin: 0;
 }
 
-.display>box.horizontal {
-  margin: 0 12px;
-}
-
-.display>box.horizontal> :not(:last-child) {
-  margin-right: 12px;
-}
-
-.display label.bpm {
-  font-size: 8em;
-  font-weight: 300;
-  font-variant: tabular-nums;
-}
-
-.display box.bpm> :not(:last-child) {
-  margin-bottom: 6px;
-}
-
-.display scale {
-  margin: 12px;
-}
-
-timerbutton {
-  /* Mimics Adwaita's private $dark_fill color. */
-  background-color: mix(@borders, @theme_bg_color, 0.5);
+window.metronome timerbutton button {
+  background-color: #00b4c5;
   border-radius: 100%;
-  color: @accent_bg_color;
-  outline: 1px solid alpha(@window_fg_color, .1);
-  outline-offset: -1px;
+  box-shadow: 0 0 24px rgba(0, 180, 197, 0.35);
+  color: #030712;
+  min-height: 80px;
+  min-width: 80px;
 }
 
-timerbutton stack {
-  border-radius: 100%;
-  margin: 4px;
-  color: transparent;
-  background: @theme_bg_color;
+window.metronome timerbutton button:hover {
+  background-color: #00c7d9;
 }
 
-timerbutton button {
-  border: none;
-  box-shadow: 0 0 0 1px alpha(@window_fg_color, .1);
-  min-height: 84px;
-  min-width: 84px;
+window.metronome timerbutton button image {
+  -gtk-icon-size: 36px;
 }
 
-timerbutton button image {
-  -gtk-icon-size: 32px;
+window.metronome timerbutton button.play-start image {
+  margin-left: 2px;
 }
 
 timerbuttontrough {
-  border-radius: 100%;
+  opacity: 0;
 }
 
-timerbuttonmark {
-  outline: solid 1px @view_bg_color;
-}
-
-@keyframes reject {
+@keyframes play-pulse {
   0% {
-    background: radial-gradient(transparent 100%, @accent_bg_color 100%);
+    box-shadow: 0 0 0 2px rgba(0, 180, 197, 0.8), 0 0 24px rgba(0, 180, 197, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 2px rgba(0, 180, 197, 0.3), 0 0 24px rgba(0, 180, 197, 0.35);
   }
 
   100% {
-    background: radial-gradient(transparent 0%, @accent_bg_color 0%);
+    box-shadow: 0 0 0 2px rgba(0, 180, 197, 0.8), 0 0 24px rgba(0, 180, 197, 0.35);
   }
 }
 
-@keyframes inject {
-  0% {
-    background: radial-gradient(transparent 0%, @accent_bg_color 0%);
-  }
-
-  100% {
-    background: radial-gradient(transparent 100%, @accent_bg_color 100%);
-  }
+window.metronome timerbutton:checked button {
+  animation: play-pulse 1.2s ease-in-out infinite;
 }
 
-timerbutton:not(:checked) stack>button:first-child image {
-  animation: reject ease-out 200ms;
+.dialog-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 24px;
+}
+
+.dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+window.tempo-presets .dialog-title {
+  font-size: 14px;
+}
+
+window.meter-editor .dialog-header button,
+window.tempo-presets .dialog-header button,
+window.help-dialog .dialog-header button {
+  border-radius: 8px;
+  color: #9ca3af;
+  font-size: 14px;
+  min-height: 28px;
+  min-width: 28px;
+}
+
+window.tempo-presets .dialog-header button {
+  min-height: 24px;
+  min-width: 24px;
+  font-size: 12px;
+}
+
+window.meter-editor .dialog-header button:hover,
+window.tempo-presets .dialog-header button:hover,
+window.help-dialog .dialog-header button:hover {
+  background-color: #31343e;
+  color: white;
+}
+
+.editor-body {
+  padding: 24px;
+}
+
+.editor-row {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.editor-row-label {
+  color: #e5e7eb;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+window.meter-editor button.step {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-weight: 700;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+window.meter-editor button.step:hover {
+  background-color: #31343e;
+  color: white;
+}
+
+label.beat-count {
+  color: #00b4c5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 32px;
+}
+
+window.meter-editor button.editor-unit {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+window.meter-editor button.editor-unit label {
+  color: #00b4c5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.accent-heading {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.accent-hint {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.beat-accents {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-top: 8px;
+  padding: 14px;
+}
+
+window.meter-editor .beat-accents button {
+  background-color: #4b5563;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  min-height: 36px;
+}
+
+window.meter-editor .beat-accents button.accent {
+  background-color: #00b4c5;
+  border-color: #00b4c5;
+  color: #030712;
+  font-weight: 700;
+}
+
+.beat-legend {
+  margin-top: 10px;
+}
+
+.beat-legend label {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.beat-dot {
+  background-color: #6b7280;
   border-radius: 100%;
-  /* Mimics Adwaita's button.suggested-action. */
-  background-color: @accent_bg_color;
-  color: @accent_fg_color;
+  min-height: 10px;
+  min-width: 10px;
 }
 
-timerbutton stack>button {
-  outline-offset: 5px;
+.beat-dot.accent {
+  background-color: #00b4c5;
 }
 
-timerbutton:not(:checked) stack>button:first-child:hover image {
-  /* Mimics Adwaita's button.suggested-action:hover. */
-  background-color: mix(@accent_bg_color, black, 0.08);
+.editor-footer {
+  padding: 0 24px 16px 24px;
 }
 
-timerbutton:checked stack>button:last-child image {
-  animation: inject ease-out 200ms;
+label.meter-duplicate {
+  background-color: rgba(229, 72, 77, 0.1);
+  border: 1px solid rgba(229, 72, 77, 0.3);
+  border-radius: 12px;
+  color: #e5484d;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 14px;
+}
+
+window.meter-editor button.editor-delete {
+  background-color: rgba(229, 72, 77, 0.1);
+  border: 1px solid rgba(229, 72, 77, 0.3);
+  border-radius: 12px;
+  color: #e5484d;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+}
+
+window.meter-editor button.editor-delete:hover {
+  background-color: rgba(229, 72, 77, 0.2);
+}
+
+window.meter-editor button.editor-delete image {
+  -gtk-icon-size: 14px;
+}
+
+window.meter-editor button.editor-cancel {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #d1d5db;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+}
+
+window.meter-editor button.editor-cancel:hover {
+  background-color: #31343e;
+}
+
+window.meter-editor button.editor-apply {
+  background-color: #00b4c5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 180, 197, 0.2);
+  color: #030712;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 20px;
+}
+
+window.meter-editor button.editor-apply:hover {
+  background-color: #00c7d9;
+}
+
+.preset-list {
+  padding: 16px;
+}
+
+window.tempo-presets button.preset-row {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+window.tempo-presets button.preset-row:hover {
+  background-color: #31343e;
+}
+
+label.preset-name {
+  color: #00b4c5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+label.preset-description {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+label.preset-range {
+  color: #d1d5db;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.help-body {
+  padding: 24px;
+}
+
+.help-kicker {
+  color: #00b4c5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.help-row {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.help-row label.help-name {
+  color: #d1d5db;
+  font-size: 12px;
+}
+
+.help-keys {
+  background-color: #202228;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #00b4c5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+}
+
+.help-about {
+  background-color: #272930;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-top: 20px;
+  padding: 16px;
+}
+
+.help-about .about-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.help-about .about-body {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.help-footer {
+  background-color: rgba(39, 41, 48, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 24px;
+}
+
+window.help-dialog button.help-done {
+  background-color: #00b4c5;
+  border-radius: 12px;
+  color: #030712;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 20px;
+}
+
+window.help-dialog button.help-done:hover {
+  background-color: #00c7d9;
+}
+
+.help-mark {
+  background-color: rgba(0, 180, 197, 0.2);
   border-radius: 100%;
-  color: @theme_fg_color;
+  color: #00b4c5;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 20px;
+  min-width: 20px;
 }

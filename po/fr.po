@@ -18,23 +18,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7 src/main.rs:25
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:3
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:7 src/main.rs:25
 msgid "Metronome"
 msgstr "Métronome"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:4
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:4
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:8
 msgid "Keep the tempo"
 msgstr "Gardez le tempo"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:10
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:10
 msgid "Bar;Beat;Beats;BPM;Measure;Minute;Rhythm;Tap;Tempo;"
 msgstr ""
 "Mesure;Battement;Battements;BPM;Mesurer;Minute;Rythme;Taper;Battre;Tempo;"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:10
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:10
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minutes."
@@ -42,46 +42,46 @@ msgstr ""
 "Métronome bat le rythme pour vous, il vous suffit de lui indiquer la "
 "signature temps et les battements par minute."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:11
 msgid ""
 "You can also tap to let the application guess the required beats per minute."
 msgstr ""
 "Vous pouvez également taper pour laisser l’application deviner le nombre de "
 "battements par mesure requis."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:16
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:16
 msgid "Main window"
 msgstr "Fenêtre principale"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:20
 msgid "Main window, narrow and running"
 msgstr "Fenêtre principale, étroite et en cours d’utilisation"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:83
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:83
 msgid "Adrien Plazas"
 msgstr "Adrien Plazas"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:6
-#: data/com.adrienplazas.Metronome.gschema.xml.in:7
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:6
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:7
 msgid "Default window width"
 msgstr "Largeur par défaut de la fenêtre"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:11
-#: data/com.adrienplazas.Metronome.gschema.xml.in:12
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:11
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:12
 msgid "Default window height"
 msgstr "Hauteur par défaut de la fenêtre"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:16
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Comportement maximisé par défaut de la fenêtre"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:22
-#: data/com.adrienplazas.Metronome.gschema.xml.in:23
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:22
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:23
 msgid "Default beats per bar"
 msgstr "Battements par mesure par défaut"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:28
-#: data/com.adrienplazas.Metronome.gschema.xml.in:29
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:28
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:29
 msgid "Default beats per minute"
 msgstr "Battements par minute par défaut"
 

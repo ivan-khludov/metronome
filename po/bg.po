@@ -19,24 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.7\n"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:2
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7 src/main.rs:25
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:2
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:7 src/main.rs:25
 msgid "Metronome"
 msgstr "Метроном"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8 src/application.rs:121
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:3
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:8 src/application.rs:121
 msgid "Keep the tempo"
 msgstr "Поддържайте темпото"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:9
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:9
 msgid "Bar;Beats;BPM;Measure;Minute;Practice;Rhythm;Tap;Tempo;Time;"
 msgstr ""
 "Такт;Удари;Удара в "
 "минута;Измерване;Минута;Упражняване;Ритъм;Натискане;Темпо;Време;"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:10
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:10
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minute."
@@ -44,48 +44,48 @@ msgstr ""
 "„Метроном“ отмерва ритъма за вас, просто трябва да му зададете желания такт "
 "и удари в минута."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:11
 msgid ""
 "You can also tap to let the application guess the required beats per minute."
 msgstr ""
 "Може също да натиснете, за да позволите на програмата да предположи "
 "необходимите удари в минута."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:20
 msgid "Main window"
 msgstr "Основен прозорец"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:24
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:24
 msgid "Main window, narrow and running"
 msgstr "Основният прозорец, тесен и работещ"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:100
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:102
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:100
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:102
 msgid "Adrien Plazas"
 msgstr "Adrien Plazas"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:6
-#: data/com.adrienplazas.Metronome.gschema.xml.in:7
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:6
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:7
 msgid "Default window width"
 msgstr "Стандартна широчина на прозореца"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:11
-#: data/com.adrienplazas.Metronome.gschema.xml.in:12
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:11
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:12
 msgid "Default window height"
 msgstr "Стандартна височина на прозореца"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:16
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Стандартно поведение на максимизиран прозорец"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:22
-#: data/com.adrienplazas.Metronome.gschema.xml.in:23
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:22
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:23
 msgid "Default beats per bar"
 msgstr "Стандартни удари на такт"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:28
-#: data/com.adrienplazas.Metronome.gschema.xml.in:29
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:28
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:29
 msgid "Default beats per minute"
 msgstr "Стандартни удари в минута"
 

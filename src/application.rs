@@ -51,6 +51,7 @@ mod imp {
         fn startup(&self) {
             log::debug!("GtkApplication<MtrApplication>::startup");
             self.parent_startup();
+            load_css();
             let app = self.obj();
 
             app.setup_gactions();
@@ -104,15 +105,34 @@ impl MtrApplication {
             })
             .build();
 
-        self.add_action_entries([quit_action, about_action, sound_control_action]);
+        let shortcuts_action = gio::ActionEntry::builder("shortcuts")
+            .activate(|app: &Self, _, _| {
+                app.show_shortcuts_dialog();
+            })
+            .build();
+
+        self.add_action_entries([
+            quit_action,
+            about_action,
+            sound_control_action,
+            shortcuts_action,
+        ]);
     }
 
     // Sets up keyboard shortcuts
     fn setup_accels(&self) {
         self.set_accels_for_action("app.quit", &["<primary>q"]);
-        self.set_accels_for_action("win.show-help-overlay", &["<primary>question"]);
         self.set_accels_for_action("win.tap", &["t"]);
         self.set_accels_for_action("app.sound-control", &["space"]);
+        self.set_accels_for_action("win.increase-bpm", &["Up"]);
+        self.set_accels_for_action("win.decrease-bpm", &["Down"]);
+        self.set_accels_for_action("win.increase-bpm-fast", &["<shift>Up"]);
+        self.set_accels_for_action("win.decrease-bpm-fast", &["<shift>Down"]);
+        self.set_accels_for_action("app.shortcuts", &["question"]);
+    }
+
+    fn show_shortcuts_dialog(&self) {
+        self.get_main_window().present_help_dialog();
     }
 
     fn show_about_dialog(&self) {
@@ -134,6 +154,7 @@ impl MtrApplication {
             .version(config::VERSION)
             .comments(details)
             .developers(vec![
+                "Ivan Khludov <ivan.khludov.dev@gmail.com>",
                 "Adrien Plazas <kekun.plazas@laposte.net>",
                 "Clara Hobbs <clara@clarahobbs.com>",
                 "FineFindus https://gitlab.gnome.org/FineFindus",
@@ -154,11 +175,57 @@ impl MtrApplication {
     }
 }
 
+fn load_css() {
+    let provider = gtk::CssProvider::new();
+    provider.load_from_resource("/io/github/ivan_khludov/metronome/style.css");
+    if let Some(display) = gtk::gdk::Display::default() {
+        gtk::style_context_add_provider_for_display(
+            &display,
+            &provider,
+            gtk::STYLE_PROVIDER_PRIORITY_USER,
+        );
+    }
+}
+
+pub(crate) fn register_fonts() {
+    let dir = std::path::Path::new(config::PKGDATADIR).join("fonts");
+    let Ok(entries) = std::fs::read_dir(&dir) else {
+        log::warn!("Font directory not found: {}", dir.display());
+        return;
+    };
+    for entry in entries.flatten() {
+        let path = entry.path();
+        if path.extension().and_then(|ext| ext.to_str()) != Some("ttf") {
+            continue;
+        }
+        let Ok(text) = std::ffi::CString::new(path.to_string_lossy().as_bytes()) else {
+            continue;
+        };
+        let added = unsafe {
+            fc_config_app_font_add_file(std::ptr::null_mut(), text.as_ptr() as *const u8)
+        };
+        if added == 0 {
+            log::warn!("Failed to add font {}", path.display());
+        }
+    }
+    unsafe {
+        fc_config_build_fonts(std::ptr::null_mut());
+    }
+}
+
+#[link(name = "fontconfig")]
+extern "C" {
+    #[link_name = "FcConfigAppFontAddFile"]
+    fn fc_config_app_font_add_file(config: *mut std::ffi::c_void, file: *const u8) -> i32;
+    #[link_name = "FcConfigBuildFonts"]
+    fn fc_config_build_fonts(config: *mut std::ffi::c_void) -> i32;
+}
+
 impl Default for MtrApplication {
     fn default() -> Self {
         glib::Object::builder()
             .property("application-id", config::APP_ID)
-            .property("resource-base-path", "/com/adrienplazas/Metronome/")
+            .property("resource-base-path", "/io/github/ivan_khludov/metronome/")
             .build()
     }
 }

@@ -8,9 +8,9 @@ stages:
 
 .vars_nightly:
   variables:
-    MANIFEST_PATH: "build-aux/com.adrienplazas.Metronome.Devel.json"
+    MANIFEST_PATH: "build-aux/io.github.ivan_khludov.metronome.Devel.json"
     FLATPAK_MODULE: "metronome"
-    APP_ID: "com.adrienplazas.Metronome.Devel"
+    APP_ID: "io.github.ivan_khludov.metronome.Devel"
 
 .vars_release:
   variables:

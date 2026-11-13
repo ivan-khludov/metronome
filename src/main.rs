@@ -2,6 +2,7 @@ mod application;
 #[rustfmt::skip]
 mod clicker;
 mod config;
+mod meter;
 mod timer;
 mod timerbutton;
 mod timerbuttonmark;
@@ -29,6 +30,8 @@ fn main() -> glib::ExitCode {
 
     let res = gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file");
     gio::resources_register(&res);
+
+    application::register_fonts();
 
     let app = MtrApplication::default();
     app.run()

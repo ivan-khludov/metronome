@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/io/github/ivan_khludov/metronome/" id="@app-id@" gettext-domain="@gettext-package@">
+    <key name="window-width" type="i">
+      <default>-1</default>
+      <summary>Default window width</summary>
+      <description>Default window width</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>-1</default>
+      <summary>Default window height</summary>
+      <description>Default window height</description>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Default window maximized behaviour</summary>
+      <description></description>
+    </key>
+    <key name="beats-per-bar" type="u">
+      <range min="1" max="16"/>
+      <default>4</default>
+      <summary>Default beats per bar</summary>
+      <description>Default beats per bar</description>
+    </key>
+    <key name="beat-unit" type="u">
+      <default>4</default>
+      <summary>Beat unit</summary>
+      <description>Denominator of the time signature. One of 2, 4, 8, or 16.</description>
+    </key>
+    <key name="accent-pattern" type="s">
+      <default>'Annn'</default>
+      <summary>Accent pattern</summary>
+      <description>Per-beat accents. A is accent, n is normal, and m is mute. The length matches beats-per-bar.</description>
+    </key>
+    <key name="saved-meters" type="as">
+      <default>['2/4/An','3/4/Ann','4/4/Annn','6/8/Annnnn']</default>
+      <summary>Saved time signatures</summary>
+      <description>Time signatures shown as buttons. Each value is beats/unit/pattern, for example 7/4/Annnnnn.</description>
+    </key>
+    <key name="meter-migrated" type="b">
+      <default>false</default>
+      <summary>Whether the time signature was migrated</summary>
+      <description>Set after the legacy beats-per-bar value is converted to a beat unit and accent pattern. A value of 6 becomes 6/8.</description>
+    </key>
+    <key name="beats-per-minute" type="u">
+      <range min="20" max="260"/>
+      <default>100</default>
+      <summary>Default beats per minute</summary>
+      <description>Default beats per minute</description>
+    </key>
+  </schema>
+</schemalist>

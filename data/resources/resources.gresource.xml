@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/adrienplazas/Metronome/">
+  <gresource prefix="/io/github/ivan_khludov/metronome/">
     <file compressed="true">audio/clicker-high.ogg</file>
     <file compressed="true">audio/clicker-low.ogg</file>
 
-    <file compressed="true" preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/shortcuts.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts-dialog.ui">ui/shortcuts.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/timerbutton.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
 
     <file compressed="true">style.css</file>
+    <file>icons/play.svg</file>
+    <file>icons/pause.svg</file>
+    <file>icons/chevron.svg</file>
+    <file>icons/plus.svg</file>
+    <file>icons/dots.svg</file>
+    <file>icons/trash.svg</file>
+    <file>icons/minimize.svg</file>
+    <file>icons/maximize.svg</file>
+    <file>icons/restore.svg</file>
+    <file>icons/close.svg</file>
   </gresource>
 </gresources>

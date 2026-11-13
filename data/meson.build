@@ -1,5 +1,15 @@
 subdir('icons')
 subdir('resources')
+
+install_data(
+  'fonts/Inter-Regular.ttf',
+  'fonts/Inter-Medium.ttf',
+  'fonts/Inter-SemiBold.ttf',
+  'fonts/Inter-Bold.ttf',
+  'fonts/JetBrainsMono-Medium.ttf',
+  'fonts/JetBrainsMono-Bold.ttf',
+  install_dir: pkgdatadir / 'fonts'
+)
 # Desktop file
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)

@@ -82,48 +82,48 @@ msgstr ""
 msgid "TAP"
 msgstr "Bấm chuột theo nhịp"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:3
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:7
 msgid "Metronome"
 msgstr "Máy gõ nhịp"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:4
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:4
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:8
 msgid "Keep the tempo"
 msgstr "Giữ nhịp độ"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:10
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:10
 msgid "Bar;Beat;Beats;BPM;Measure;Minute;Rhythm;Tap;Tempo;"
 msgstr ""
 "Bar;Beat;Beats;BPM;Measure;Minute;Rhythm;Tap;Tempo;Phách;Phach;Nhịp;Nhip;Đo;"
 "Do;Gõ;go;"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:6
-#: data/com.adrienplazas.Metronome.gschema.xml.in:7
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:6
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:7
 msgid "Default window width"
 msgstr "Độ rộng cửa sổ mặc định"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:11
-#: data/com.adrienplazas.Metronome.gschema.xml.in:12
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:11
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:12
 msgid "Default window height"
 msgstr "Độ cao của cửa sổ mặc định"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:16
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Cách ứng xử cửa sổ đã phóng hết cỡ mặc định"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:22
-#: data/com.adrienplazas.Metronome.gschema.xml.in:23
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:22
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:23
 msgid "Default beats per bar"
 msgstr "Nhịp mặc định mỗi phách"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:28
-#: data/com.adrienplazas.Metronome.gschema.xml.in:29
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:28
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:29
 msgid "Default beats per minute"
 msgstr "Nhịp mặc định mỗi phút"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:10
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:10
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minutes."
@@ -131,21 +131,21 @@ msgstr ""
 "Máy gõ nhịp gõ nhịp cho bạn, bạn đơn giản chỉ cần cho nó biết nhịp và tốc độ "
 "gõ mỗi phút."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:11
 msgid ""
 "You can also tap to let the application guess the required beats per minute."
 msgstr ""
 "Bạn cũng có thể bấm chuột theo nhịp và ứng dụng sẽ đoán được tốc độ gõ mỗi "
 "phút."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:16
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:16
 msgid "Main window"
 msgstr "Cửa sổ chính"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:20
 msgid "Main window, narrow and running"
 msgstr "Cửa sổ chính, hẹp và đang chạy"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:63
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:63
 msgid "Adrien Plazas"
 msgstr "Adrien Plazas"

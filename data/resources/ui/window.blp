@@ -1,193 +1,293 @@
 using Gtk 4.0;
 using Adw 1;
 
-menu primary_menu {
-  section {
-    item {
-      label: _("_Keyboard Shortcuts");
-      action: "win.show-help-overlay";
-    }
-
-    item {
-      label: _("_About Metronome");
-      action: "app.about";
-    }
-  }
-}
-
 template $MtrApplicationWindow : Adw.ApplicationWindow {
-  default-width: 600;
-  default-height: 530;
+  default-width: 478;
+  width-request: 478;
 
   styles [
     "application",
+    "metronome",
   ]
 
-  WindowHandle {
+  Overlay {
+    WindowHandle {
     Adw.ToolbarView {
       [top]
-      Adw.HeaderBar header {
-        [title]
+      Adw.HeaderBar {
+        show-end-title-buttons: false;
+        show-start-title-buttons: false;
+        show-title: false;
+
+        [start]
         Box {
-          visible: false;
-        }
-      }
+          spacing: 8;
+          valign: center;
 
-      content: CenterBox {
-          orientation: vertical;
-
-          [center]
           Box {
-          orientation: vertical;
-
-          Box time_signature {
-            halign: center;
+            height-request: 12;
+            valign: center;
+            width-request: 12;
 
             styles [
-              "time-signature",
+              "title-dot",
+            ]
+          }
+
+          Label {
+            label: _("Metronome");
+            valign: center;
+
+            styles [
+              "window-title",
+            ]
+          }
+        }
+
+        [end]
+        Box {
+          spacing: 8;
+          valign: center;
+
+          Button {
+            action-name: "app.shortcuts";
+            height-request: 24;
+            label: "?";
+            width-request: 24;
+
+            styles [
+              "help-button",
+            ]
+          }
+
+          Box {
+            spacing: 4;
+            valign: center;
+
+            styles [
+              "window-controls",
             ]
 
-            ToggleButton time_signature_2_4_button {
-              notify::active => $on_time_signature_2_4_button_active() swapped;
-              group: time_signature_4_4_button;
-              tooltip-text: _("2/4 Time");
-              halign: center;
-              valign: center;
+            Button {
+              clicked => $on_minimize_clicked() swapped;
+              height-request: 20;
+              width-request: 20;
 
               styles [
-                "circular",
-                "large",
-                "text-button",
+                "window-control",
               ]
 
-              Label {
-                justify: center;
-                label: _("2\n4");
+              Image {
+                height-request: 16;
+                resource: "/io/github/ivan_khludov/metronome/icons/minimize.svg";
+                width-request: 16;
               }
             }
 
-            ToggleButton time_signature_3_4_button {
-              notify::active => $on_time_signature_3_4_button_active() swapped;
-              tooltip-text: _("3/4 Time");
-              group: time_signature_4_4_button;
-              halign: center;
-              valign: center;
+            Button {
+              clicked => $on_maximize_clicked() swapped;
+              height-request: 20;
+              width-request: 20;
 
               styles [
-                "circular",
-                "large",
-                "text-button",
+                "window-control",
               ]
 
-              Label {
-                justify: center;
-                label: _("3\n4");
+              Image maximize_icon {
+                height-request: 16;
+                resource: "/io/github/ivan_khludov/metronome/icons/maximize.svg";
+                width-request: 16;
               }
             }
 
-            ToggleButton time_signature_4_4_button {
-              notify::active => $on_time_signature_4_4_button_active() swapped;
-              tooltip-text: _("4/4 Time");
-              active: true;
-              halign: center;
-              valign: center;
+            Button {
+              clicked => $on_close_clicked() swapped;
+              height-request: 20;
+              width-request: 20;
 
               styles [
-                "circular",
-                "large",
-                "text-button",
+                "window-control",
+                "close",
               ]
 
-              Label {
-                justify: center;
-                label: _("4\n4");
-              }
-            }
-
-            ToggleButton time_signature_6_8_button {
-              notify::active => $on_time_signature_6_8_button_active() swapped;
-              group: time_signature_4_4_button;
-              tooltip-text: _("6/8 Time");
-              halign: center;
-              valign: center;
-
-              styles [
-                "circular",
-                "large",
-                "text-button",
-              ]
-
-              Label {
-                justify: center;
-                label: _("6\n8");
+              Image {
+                height-request: 16;
+                resource: "/io/github/ivan_khludov/metronome/icons/close.svg";
+                width-request: 16;
               }
             }
           }
+        }
+      }
 
-          Adw.Clamp {
-            tightening-threshold: 360;
-            maximum-size: 480;
+      content: Box {
+        hexpand: true;
+        orientation: horizontal;
+        vexpand: true;
 
-            Box {
+        Box {
+          hexpand: true;
+        }
+
+        Box {
+          halign: fill;
+          hexpand: false;
+          orientation: vertical;
+          spacing: 24;
+          valign: center;
+          width-request: 478;
+
+          styles [
+            "app-column",
+          ]
+
+            Box time_signature {
+              halign: fill;
+              hexpand: true;
               orientation: vertical;
 
               styles [
-                "display",
-                "card",
+                "time-signature",
               ]
 
-              Box {
-                halign: center;
+              Label {
+                halign: start;
+                label: _("Time Signature");
 
-                Label {
-                  label: bind-property template.beats-per-minute;
-                  width-chars: 3;
+                styles [
+                  "section-label",
+                ]
+              }
+
+              Grid time_signature_meters {
+                column-homogeneous: true;
+                column-spacing: 10;
+                halign: fill;
+                hexpand: true;
+                row-homogeneous: true;
+                row-spacing: 10;
+                valign: start;
+              }
+
+              Button time_signature_add_button {
+                clicked => $on_add_time_signature_clicked() swapped;
+                halign: fill;
+                height-request: 56;
+                hexpand: true;
+                tooltip-text: _("Add Time Signature");
+                valign: fill;
+
+                styles [
+                  "meter-add",
+                ]
+
+                Image {
+                  height-request: 20;
+                  resource: "/io/github/ivan_khludov/metronome/icons/plus.svg";
+                  width-request: 20;
+                }
+              }
+            }
+
+            Box {
+              orientation: vertical;
+              spacing: 24;
+
+              styles [
+                "display",
+                "tempo-card",
+              ]
+
+              Button {
+                clicked => $on_tempo_marking_clicked() swapped;
+                halign: start;
+                hexpand: false;
+                tooltip-text: _("Tempo");
+
+                styles [
+                  "tempo-marking",
+                ]
+
+                Box {
+                  spacing: 6;
+
+                  Label tempo_marking {
+                    label: "Moderato";
+
+                    styles [
+                      "tempo-name",
+                    ]
+                  }
+
+                  Image {
+                    height-request: 12;
+                    resource: "/io/github/ivan_khludov/metronome/icons/chevron.svg";
+                    width-request: 12;
+                  }
+                }
+              }
+
+              Box {
+                styles [
+                  "bpm-row",
+                ]
+
+                Button {
+                  action-name: "win.decrease-bpm";
+                  height-request: 48;
+                  label: "−";
+                  tooltip-text: _("Decrease BPM (Down)");
+                  valign: center;
+                  width-request: 48;
 
                   styles [
-                    "bpm",
+                    "bpm-step",
                   ]
                 }
 
                 Box {
+                  halign: center;
+                  hexpand: true;
                   orientation: vertical;
                   valign: center;
 
+                  Label {
+                    halign: center;
+                    label: bind template.beats-per-minute;
+                    width-chars: 3;
+
+                    styles [
+                      "bpm-value",
+                    ]
+                  }
+
+                  Label {
+                    halign: center;
+                    label: _("BPM");
+
+                    styles [
+                      "bpm-caption",
+                    ]
+                  }
+                }
+
+                Button {
+                  action-name: "win.increase-bpm";
+                  height-request: 48;
+                  label: "+";
+                  tooltip-text: _("Increase BPM (Up)");
+                  valign: center;
+                  width-request: 48;
+
                   styles [
-                    "bpm",
+                    "bpm-step",
                   ]
-
-                  Button {
-                    action-name: "win.increase-bpm";
-                    halign: center;
-                    icon-name: "value-increase-symbolic";
-                    valign: center;
-                    tooltip-text: _("Increase BPM");
-
-                    styles [
-                      "circular",
-                    ]
-                  }
-
-                  Button {
-                    action-name: "win.decrease-bpm";
-                    halign: center;
-                    icon-name: "value-decrease-symbolic";
-                    valign: center;
-                    tooltip-text: _("Decrease BPM");
-
-                    styles [
-                      "circular",
-                    ]
-                  }
                 }
               }
 
               Scale {
                 adjustment: bpm_adjustment;
                 digits: 0;
-                margin-bottom: 8;
-                margin-start: 8;
-                margin-end: 8;
 
                 marks [
                   mark (20, bottom, "20"),
@@ -198,64 +298,85 @@ template $MtrApplicationWindow : Adw.ApplicationWindow {
                 ]
               }
             }
-          }
 
-          Box controls {
-            halign: center;
-
-            styles [
-              "controls",
-            ]
-
-            Button {
-              action-name: "win.tap";
-              halign: center;
-              label: _("TAP");
-              valign: center;
+            Box controls {
+              hexpand: true;
 
               styles [
-                "circular",
-                "large",
+                "controls",
               ]
-            }
 
-            $MtrTimerButton timer_button {
-              beats-per-bar: bind-property template.beats-per-bar;
-              beats-per-minute: bind-property template.beats-per-minute;
-            }
+              Button {
+                action-name: "win.tap";
+                halign: start;
+                height-request: 56;
+                label: _("TAP");
+                tooltip-text: _("Tap (T)");
+                valign: center;
+                width-request: 56;
 
-            [end]
-            MenuButton {
-              primary: true;
-              tooltip-text: _("Main Menu");
-              halign: center;
-              icon-name: "open-menu-symbolic";
-              menu-model: primary_menu;
-              valign: center;
+                styles [
+                  "transport",
+                ]
+              }
 
-              styles [
-                "circular",
-                "large",
-              ]
+              Box {
+                hexpand: true;
+              }
+
+              $MtrTimerButton timer_button {
+                accent-pattern: bind template.accent-pattern;
+                beats-per-bar: bind template.beats-per-bar;
+                beats-per-minute: bind template.beats-per-minute;
+                halign: center;
+                height-request: 80;
+                valign: center;
+                width-request: 80;
+              }
+
+              Box {
+                hexpand: true;
+              }
+
+              Button {
+                clicked => $on_edit_time_signature_clicked() swapped;
+                halign: end;
+                height-request: 56;
+                tooltip-text: _("Edit Time Signature");
+                valign: center;
+                width-request: 56;
+
+                styles [
+                  "transport",
+                ]
+
+                Image {
+                  height-request: 24;
+                  resource: "/io/github/ivan_khludov/metronome/icons/dots.svg";
+                  width-request: 24;
+                }
+              }
             }
           }
+
+        Box {
+          hexpand: true;
         }
-
-        [end]
-        Box footer {}
       };
     }
   }
-}
 
-SizeGroup {
-  mode: vertical;
-  widgets [time_signature, controls]
-}
+  [overlay]
+  Box window_dimmer {
+    hexpand: true;
+    vexpand: true;
+    visible: false;
 
-SizeGroup {
-  mode: vertical;
-  widgets [header, footer]
+    styles [
+      "window-dimmer",
+    ]
+  }
+  }
 }
 
 Adjustment bpm_adjustment {
@@ -263,11 +384,12 @@ Adjustment bpm_adjustment {
   upper: 260;
   page-increment: 10;
   step-increment: 1;
-  value: bind-property template.beats-per-minute no-sync-create bidirectional;
+  value: bind template.beats-per-minute bidirectional;
 }
 
 $MtrTimer timer {
-  active: bind-property timer_button.active;
-  beats-per-bar: bind-property template.beats-per-bar;
-  beats-per-minute: bind-property template.beats-per-minute;
+  accent-pattern: bind template.accent-pattern;
+  active: bind timer_button.active;
+  beats-per-bar: bind template.beats-per-bar;
+  beats-per-minute: bind template.beats-per-minute;
 }

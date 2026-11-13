@@ -1,13 +1,13 @@
 project('metronome',
         'rust',
-        version: '1.3.0',
+        version: '2.0.0',
         license: 'GPL-3.0-or-later',
         meson_version: '>= 0.59')
 
 i18n = import('i18n')
 gnome = import('gnome')
 
-base_id = 'com.adrienplazas.Metronome'
+base_id = 'io.github.ivan_khludov.metronome'
 
 glib_version = '>= 2.66'
 gstreamer_version = '>= 1.16'

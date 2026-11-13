@@ -81,47 +81,47 @@ msgstr ""
 msgid "TAP"
 msgstr "BATUÇÂ"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7 src/main.rs:25
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:3
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:7 src/main.rs:25
 msgid "Metronome"
 msgstr "Metronom"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:4
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:4
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:8
 msgid "Keep the tempo"
 msgstr "Ten il timp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:10
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:10
 msgid "Bar;Beat;Beats;BPM;Measure;Minute;Rhythm;Tap;Tempo;"
 msgstr ""
 "Sbare;Spere;Pendul;Bati;Batude;Batudis;BPM;Misure;Minût;Ritmi;Batuçâ;Timp;"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:6
-#: data/com.adrienplazas.Metronome.gschema.xml.in:7
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:6
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:7
 msgid "Default window width"
 msgstr "Largjece predefinide dal barcon"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:11
-#: data/com.adrienplazas.Metronome.gschema.xml.in:12
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:11
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:12
 msgid "Default window height"
 msgstr "Altece predefinide dal barcon"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:16
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Compuartament predefinît dal barcon slargjât"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:22
-#: data/com.adrienplazas.Metronome.gschema.xml.in:23
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:22
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:23
 msgid "Default beats per bar"
 msgstr "Batudis predefinidis par spere"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:28
-#: data/com.adrienplazas.Metronome.gschema.xml.in:29
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:28
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:29
 msgid "Default beats per minute"
 msgstr "Batudis predefinidis par minût"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:10
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:10
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minutes."
@@ -129,20 +129,20 @@ msgstr ""
 "Metronom al bat il ritmi par te, ti baste dîsi la firme temporâl necessarie "
 "e lis batudis par minût."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:11
 msgid ""
 "You can also tap to let the application guess the required beats per minute."
 msgstr ""
 "Tu puedis ancje batuçâ par fâi induvinâ lis batudis par minût desideradis."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:16
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:16
 msgid "Main window"
 msgstr "Barcon principâl"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:20
 msgid "Main window, narrow and running"
 msgstr "Barcon principâl, stret e in esecuzion"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:63
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:63
 msgid "Adrien Plazas"
 msgstr "Adrien Plazas"

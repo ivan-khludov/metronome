@@ -1,7 +1,7 @@
 {
-    "id": "com.adrienplazas.Metronome.Devel",
+    "id": "io.github.ivan_khludov.metronome",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "49",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -9,26 +9,30 @@
     "command": "metronome",
     "finish-args": [
         "--share=ipc",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--socket=pulseaudio",
         "--device=dri",
-        "--env=RUST_LOG=metronome=debug",
-        "--env=G_MESSAGES_DEBUG=none"
+        "--socket=fallback-x11",
+        "--socket=pulseaudio",
+        "--socket=wayland"
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
         "build-args": [
             "--share=network"
-        ],
-        "test-args": [
-            "--socket=x11",
-            "--share=network"
-        ],
-        "env": {
-            "RUST_BACKTRACE": "1"
-        }
+        ]
     },
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a",
+        "/lib/girepository-1.0",
+        "/share/gir-1.0"
+    ],
     "modules": [
         {
             "name": "blueprint-compiler",
@@ -37,17 +41,13 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "tag": "v0.8.1"
+                    "tag": "v0.22.2"
                 }
             ]
         },
         {
             "name": "metronome",
             "buildsystem": "meson",
-            "run-tests": true,
-            "config-opts": [
-                "-Dprofile=development"
-            ],
             "sources": [
                 {
                     "type": "dir",

@@ -20,22 +20,28 @@ template $MtrTimerButton : Widget {
     valign: center;
 
     Button start_button {
-      tooltip-text: _("Play");
+      height-request: 80;
+      tooltip-text: _("Play (Space)");
+      width-request: 80;
       clicked => $start() swapped;
 
       styles [
         "circular",
         "image-button",
+        "play-start",
       ]
 
       Image {
-        valign: fill;
-        icon-name: "media-playback-start-symbolic";
+        resource: "/io/github/ivan_khludov/metronome/icons/play.svg";
+        width-request: 36;
+        height-request: 36;
       }
     }
 
     Button pause_button {
-      tooltip-text: _("Pause");
+      height-request: 80;
+      tooltip-text: _("Pause (Space)");
+      width-request: 80;
       clicked => $pause() swapped;
 
       styles [
@@ -44,8 +50,9 @@ template $MtrTimerButton : Widget {
       ]
 
       Image {
-        valign: fill;
-        icon-name: "media-playback-pause-symbolic";
+        resource: "/io/github/ivan_khludov/metronome/icons/pause.svg";
+        width-request: 36;
+        height-request: 36;
       }
     }
   }

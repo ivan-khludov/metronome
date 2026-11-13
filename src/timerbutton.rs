@@ -1,7 +1,6 @@
-use crate::timerbuttonmark::MtrTimerButtonMark;
 use crate::timerbuttontrough::MtrTimerButtonTrough;
 use adw::subclass::prelude::*;
-use gtk::{glib, prelude::*};
+use gtk::{gdk, glib, graphene, prelude::*};
 use std::time::Instant;
 
 mod imp {
@@ -14,7 +13,7 @@ mod imp {
     };
 
     #[derive(Debug, glib::Properties, gtk::CompositeTemplate)]
-    #[template(resource = "/com/adrienplazas/Metronome/ui/timerbutton.ui")]
+    #[template(resource = "/io/github/ivan_khludov/metronome/ui/timerbutton.ui")]
     #[properties(wrapper_type = super::MtrTimerButton)]
     pub struct MtrTimerButton {
         #[template_child]
@@ -29,11 +28,14 @@ mod imp {
         pub stack: TemplateChild<gtk::Stack>,
         #[template_child]
         marks_container: TemplateChild<gtk::Box>,
+        #[property(get, set = Self::set_accent_pattern, default = "Annn")]
+        pub accent_pattern: RefCell<String>,
         #[property(get, set = Self::set_beats_per_bar, minimum = BPB_MIN, maximum = BPB_MAX, default = BPB_DEFAULT)]
         pub beats_per_bar: Cell<u32>,
         #[property(get, set = Self::set_beats_per_minute, minimum = BPM_MIN, maximum = BPM_MAX, default = BPM_DEFAULT)]
         pub beats_per_minute: Cell<u32>,
         pub snapshot_time: Cell<Instant>,
+        pub ring_started: Cell<Instant>,
         pub running_id: RefCell<Option<gtk::TickCallbackId>>,
         #[property(get = Self::active)]
         pub active: PhantomData<bool>,
@@ -53,9 +55,11 @@ mod imp {
                 marks_overlay: Default::default(),
                 stack: Default::default(),
                 marks_container: Default::default(),
+                accent_pattern: RefCell::new(String::from("Annn")),
                 beats_per_bar: std::cell::Cell::new(BPB_DEFAULT),
                 beats_per_minute: std::cell::Cell::new(BPM_DEFAULT),
                 snapshot_time: std::cell::Cell::new(Instant::now()),
+                ring_started: std::cell::Cell::new(Instant::now()),
                 running_id: Default::default(),
                 active: Default::default(),
             }
@@ -109,10 +113,30 @@ mod imp {
             self.trough.set_progress(progress);
 
             self.parent_snapshot(snapshot);
+
+            if self.running_id.borrow().is_some() {
+                draw_beat_ring(
+                    snapshot,
+                    &*widget,
+                    &self.stack,
+                    widget.beats_per_bar().max(1),
+                    progress,
+                    self.ring_started.get(),
+                );
+            }
         }
     }
 
     impl MtrTimerButton {
+        fn set_accent_pattern(&self, pattern: String) {
+            if self.accent_pattern.borrow().as_str() == pattern {
+                return;
+            }
+            self.accent_pattern.replace(pattern);
+            self.obj().update_marks();
+            self.obj().notify_accent_pattern();
+        }
+
         fn set_beats_per_bar(&self, beats_per_bar: u32) {
             let obj = self.obj();
 
@@ -145,16 +169,8 @@ glib::wrapper! {
 impl MtrTimerButton {
     fn update_marks(&self) {
         let imp = self.imp();
-
         while let Some(child) = imp.marks_overlay.first_child() {
             child.unparent();
-        }
-
-        let beats_per_bar = self.beats_per_bar();
-        for i in 0..beats_per_bar {
-            let mark = MtrTimerButtonMark::default();
-            mark.set_angle(i as f32 * 360.0 / beats_per_bar as f32);
-            imp.marks_overlay.add_overlay(&mark);
         }
     }
 
@@ -163,6 +179,7 @@ impl MtrTimerButton {
         let imp = self.imp();
 
         imp.snapshot_time.set(Instant::now());
+        imp.ring_started.set(Instant::now());
         imp.stack.set_visible_child(&*imp.pause_button);
 
         let source_id = self.add_tick_callback(move |this, _clock| {
@@ -173,6 +190,7 @@ impl MtrTimerButton {
         imp.running_id.replace(Some(source_id));
 
         self.set_state_flags(gtk::StateFlags::CHECKED, false);
+        self.queue_draw();
 
         self.notify_active();
     }
@@ -188,7 +206,66 @@ impl MtrTimerButton {
         imp.stack.set_visible_child(&*imp.start_button);
 
         self.unset_state_flags(gtk::StateFlags::CHECKED);
+        self.queue_draw();
 
         self.notify_active();
+    }
+}
+
+fn stroke_arc(snapshot: &gtk::Snapshot, cx: f32, cy: f32, radius: f32, start: f32, end: f32, color: gdk::RGBA) {
+    let sweep = end - start;
+    if sweep < 0.2 {
+        return;
+    }
+    let pad = 4.0;
+    let bounds = graphene::Rect::new(cx - radius - pad, cy - radius - pad, (radius + pad) * 2.0, (radius + pad) * 2.0);
+    let context = snapshot.append_cairo(&bounds);
+    context.set_source_rgba(color.red() as f64, color.green() as f64, color.blue() as f64, color.alpha() as f64);
+    context.set_line_width(3.5);
+    context.set_line_cap(gtk::cairo::LineCap::Butt);
+    // Cairo angles grow clockwise here because y points down. 0° is 3 o'clock,
+    // so 12 o'clock is -90°.
+    context.arc(cx as f64, cy as f64, radius as f64, (start - 90.0).to_radians() as f64, (end - 90.0).to_radians() as f64);
+    let _ = context.stroke();
+}
+
+/// Sectors start at 12 o'clock and run clockwise. The current beat fills over
+/// its own duration; earlier beats of this bar stay dim.
+fn draw_beat_ring(
+    snapshot: &gtk::Snapshot,
+    widget: &MtrTimerButton,
+    stack: &gtk::Stack,
+    beats: u32,
+    progress: f64,
+    started: Instant,
+) {
+    let Some(bounds) = stack.compute_bounds(widget) else {
+        return;
+    };
+    let cx = bounds.x() + bounds.width() / 2.0;
+    let cy = bounds.y() + bounds.height() / 2.0;
+    let side = bounds.width().min(bounds.height()) + 12.0;
+    let radius = 46.0 / 100.0 * side;
+    let fade = (started.elapsed().as_secs_f32() / 0.2).clamp(0.0, 1.0);
+    let beats_f = beats as f32;
+    let gap = (6.0_f32).min(40.0 / beats_f);
+    let segment = (360.0 - gap * beats_f) / beats_f;
+    let position = (progress.fract() * beats as f64) as f32;
+    let current = (position.floor() as u32).min(beats - 1);
+    let fraction = if position >= beats_f { 1.0 } else { position.fract() };
+
+    let track = gdk::RGBA::new(1.0, 1.0, 1.0, 0.12 * fade);
+    let done = gdk::RGBA::new(0.0, 180.0 / 255.0, 197.0 / 255.0, 0.5 * fade);
+    let active = gdk::RGBA::new(0.0, 180.0 / 255.0, 197.0 / 255.0, fade);
+
+    for index in 0..beats {
+        let start = index as f32 * (segment + gap);
+        let end = start + segment;
+        stroke_arc(snapshot, cx, cy, radius, start, end, track);
+        if index < current {
+            stroke_arc(snapshot, cx, cy, radius, start, end, done);
+        } else if index == current {
+            stroke_arc(snapshot, cx, cy, radius, start, start + segment * fraction, active);
+        }
     }
 }

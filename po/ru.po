@@ -19,24 +19,24 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:3
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:7 src/main.rs:25
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:3
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:7 src/main.rs:25
 msgid "Metronome"
 msgstr "Метроном"
 
-#: data/com.adrienplazas.Metronome.desktop.in.in:4
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:8 src/application.rs:120
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:4
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:8 src/application.rs:120
 msgid "Keep the tempo"
 msgstr "Сохраняйте темп"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.adrienplazas.Metronome.desktop.in.in:10
+#: data/io.github.ivan_khludov.metronome.desktop.in.in:10
 msgid "Bar;Beats;BPM;Measure;Minute;Practice;Rhythm;Tap;Tempo;Time;"
 msgstr ""
 "Bar;Beat;Beats;BPM;Measure;Minute;Practice;Rhythm;Tap;Tempo;Time;такт;ритм;"
 "удары;бит;минута;темп;время;"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:10
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:10
 msgid ""
 "Metronome beats the rhythm for you, you simply need to tell it the required "
 "time signature and beats per minute."
@@ -44,42 +44,42 @@ msgstr ""
 "Метроном отбивает ритм за вас, вам просто нужно указать нужный тактовый "
 "размер и число ударов в минуту."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:11
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:11
 msgid ""
 "You can also tap to let the application guess the required beats per minute."
 msgstr ""
 "Вы также можете понажимать на кнопку, чтобы приложение угадало необходимое "
 "количество ударов в минуту."
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:16
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:16
 msgid "Main window"
 msgstr "Главное окно"
 
-#: data/com.adrienplazas.Metronome.metainfo.xml.in.in:20
+#: data/io.github.ivan_khludov.metronome.metainfo.xml.in.in:20
 msgid "Main window, narrow and running"
 msgstr "Главное окно, узкое и работающее"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:6
-#: data/com.adrienplazas.Metronome.gschema.xml.in:7
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:6
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:7
 msgid "Default window width"
 msgstr "Ширина окна по умолчанию"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:11
-#: data/com.adrienplazas.Metronome.gschema.xml.in:12
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:11
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:12
 msgid "Default window height"
 msgstr "Высота окна по умолчанию"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:16
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Поведение по максимизации окна по умолчанию"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:22
-#: data/com.adrienplazas.Metronome.gschema.xml.in:23
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:22
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:23
 msgid "Default beats per bar"
 msgstr "Ударов на такт по умолчанию"
 
-#: data/com.adrienplazas.Metronome.gschema.xml.in:28
-#: data/com.adrienplazas.Metronome.gschema.xml.in:29
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:28
+#: data/io.github.ivan_khludov.metronome.gschema.xml.in:29
 msgid "Default beats per minute"
 msgstr "Ударов в минуту по умолчанию"
 
@@ -91,22 +91,47 @@ msgstr "Общие"
 #: data/resources/ui/shortcuts.blp:16
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Показать комбинации клавиш"
+msgstr "Сочетания клавиш"
 
 #: data/resources/ui/shortcuts.blp:21
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Закрыть"
+msgstr "Выход"
 
 #: data/resources/ui/shortcuts.blp:26
 msgctxt "shortcut window"
 msgid "Tap"
-msgstr "Нажать"
+msgstr "Отстучать темп"
 
 #: data/resources/ui/shortcuts.blp:31
 msgctxt "shortcut window"
 msgid "Play/Pause"
-msgstr "Запуск / Пауза"
+msgstr "Старт / пауза"
+
+#: data/resources/ui/shortcuts.blp:9
+msgctxt "shortcut window"
+msgid "Start or Pause"
+msgstr "Старт / пауза"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Increase BPM"
+msgstr "Темп +1"
+
+#: data/resources/ui/shortcuts.blp:34
+msgctxt "shortcut window"
+msgid "Decrease BPM"
+msgstr "Темп −1"
+
+#: data/resources/ui/shortcuts.blp:39
+msgctxt "shortcut window"
+msgid "Increase BPM by 5"
+msgstr "Темп +5"
+
+#: data/resources/ui/shortcuts.blp:44
+msgctxt "shortcut window"
+msgid "Decrease BPM by 5"
+msgstr "Темп −5"
 
 #: data/resources/ui/timerbutton.blp:23
 msgid "Play"
@@ -182,7 +207,7 @@ msgstr "Замедлить темп"
 
 #: data/resources/ui/window.blp:213
 msgid "TAP"
-msgstr "Нажать"
+msgstr "TAP"
 
 #: data/resources/ui/window.blp:230
 msgid "Main Menu"
@@ -207,6 +232,178 @@ msgstr ""
 #: src/application.rs:144
 msgid "translator-credits"
 msgstr "Ser82-png <asvmail.as@gmail.com>, 2023-2024"
+
+#: data/resources/ui/window.blp
+msgid "Keyboard Shortcuts (?)"
+msgstr "Сочетания клавиш (?)"
+
+#: data/resources/ui/window.blp
+msgid "Time Signature"
+msgstr "Музыкальный размер"
+
+#: data/resources/ui/window.blp
+msgid "Add Time Signature"
+msgstr "Добавить размер"
+
+#: data/resources/ui/window.blp
+msgid "Tempo"
+msgstr "Темп"
+
+#: data/resources/ui/window.blp
+msgid "Decrease BPM (Down)"
+msgstr "Уменьшить темп (Вниз)"
+
+#: data/resources/ui/window.blp
+msgid "BPM"
+msgstr "BPM"
+
+#: data/resources/ui/window.blp
+msgid "Increase BPM (Up)"
+msgstr "Увеличить темп (Вверх)"
+
+#: data/resources/ui/window.blp
+msgid "Tap (T)"
+msgstr "Отстучать (T)"
+
+#: data/resources/ui/window.blp
+msgid "Edit Time Signature"
+msgstr "Изменить музыкальный размер"
+
+#: data/resources/ui/timerbutton.blp
+msgid "Play (Space)"
+msgstr "Старт (Пробел)"
+
+#: data/resources/ui/timerbutton.blp
+msgid "Pause (Space)"
+msgstr "Пауза (Пробел)"
+
+#: src/window.rs
+msgid "New Time Signature"
+msgstr "Новый музыкальный размер"
+
+#: src/window.rs
+msgid "Beats per bar"
+msgstr "Долей в такте"
+
+#: src/window.rs
+msgid "Beat unit"
+msgstr "Длительность доли"
+
+#: src/window.rs
+msgid "Accents"
+msgstr "Схема акцентов"
+
+#: src/window.rs
+msgid "Tap a beat to switch between an accent and a normal beat."
+msgstr "Нажмите долю, чтобы переключить акцент и обычный удар."
+
+#: src/window.rs
+msgid "This time signature already exists"
+msgstr "Такой музыкальный размер уже есть"
+
+#: src/window.rs
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/window.rs
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/window.rs
+msgid "Add"
+msgstr "Добавить"
+
+#: src/window.rs
+msgid "Apply"
+msgstr "Применить"
+
+#: src/window.rs
+msgid "Accent"
+msgstr "Акцент"
+
+#: src/window.rs
+msgid "Normal"
+msgstr "Обычный удар"
+
+#: src/window.rs
+msgid "Beat {}: accent"
+msgstr "Доля {}: акцент"
+
+#: src/window.rs
+msgid "Beat {}: normal"
+msgstr "Доля {}: обычный удар"
+
+#: src/window.rs
+msgid "Very slow and broad"
+msgstr "Очень медленно и широко"
+
+#: src/window.rs
+msgid "Slow and calm"
+msgstr "Медленно, спокойно"
+
+#: src/window.rs
+msgid "At a walking pace"
+msgstr "В темпе шага"
+
+#: src/window.rs
+msgid "Moderate"
+msgstr "Умеренно"
+
+#: src/window.rs
+msgid "Fast and lively"
+msgstr "Быстро, оживлённо"
+
+#: src/window.rs
+msgid "Very fast"
+msgstr "Очень быстро"
+
+msgid "Minimize"
+msgstr "Свернуть"
+
+msgid "Maximize"
+msgstr "Развернуть"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Click to change the beat"
+msgstr "Нажатие меняет удар"
+
+msgid "Tempo markings"
+msgstr "Выбор темпа"
+
+msgid "Shortcuts and hotkeys"
+msgstr "Справка и горячие клавиши"
+
+msgid "Keyboard shortcuts"
+msgstr "Горячие клавиши"
+
+msgid "Start or pause"
+msgstr "Старт / пауза"
+
+msgid "BPM ±1"
+msgstr "Темп ±1"
+
+msgid "BPM ±5"
+msgstr "Темп ±5"
+
+msgid "Show shortcuts"
+msgstr "Показать сочетания"
+
+msgid "Close window"
+msgstr "Закрыть окно"
+
+msgid "About"
+msgstr "О приложении"
+
+msgid "Metronome keeps the beat. Set a time signature and a tempo, or tap to guess it."
+msgstr "Метроном держит ритм. Задайте размер и темп или отстучите темп, чтобы приложение его угадало."
+
+msgid "Version:"
+msgstr "Версия:"
+
+msgid "Got it"
+msgstr "Понятно"
 
 #~ msgid "Adrien Plazas"
 #~ msgstr "Adrien Plazas"

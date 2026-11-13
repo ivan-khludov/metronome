@@ -1,7 +1,11 @@
 target/
+.cargo/
+.cargo-home/
 build/
+build-dir/
 _build/
 builddir/
+.flatpak-builder/
 build-aux/app
 build-aux/.flatpak-builder/
 src/config.rs

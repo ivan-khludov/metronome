@@ -1,25 +1,53 @@
 # Metronome
 
-Keep the tempo
+A dark GTK metronome for practice. Set a tempo, choose a time signature, and play.
 
-Metronome beats the rhythm for you, you simply need to tell it the required time signature and beats per minutes.
+This is a modified version of [GNOME Metronome](https://gitlab.gnome.org/World/metronome) by Adrien Plazas and contributors. The interface was redesigned in 2026. The license is unchanged: GPL-3.0-or-later.
 
-You can also tap to let the application guess the required beats per minute.
+<p align="center">
+  <img src="data/resources/screenshots/screenshot.png" alt="Metronome main window" width="420" />
+</p>
 
-A boilerplate template to get started with GTK, Rust, Meson, Flatpak made for GNOME. It can be adapted for other desktop environments like elementary.
+## Features
 
-<div align="center">
-![Main window](data/resources/screenshots/screenshot1.png "Main window")
-</div>
+- Tempo from 20 to 260 BPM, with a slider and step buttons
+- Tempo markings from Largo to Prestissimo
+- Tap to estimate the tempo
+- Custom time signatures, kept between sessions
+- An accent on any beat
+- Play and pause, plus keyboard shortcuts
 
-## Building with Flatpak + GNOME Builder
+## Building
 
-Metronome can be built and run with [GNOME Builder](https://wiki.gnome.org/Apps/Builder) >= 3.28.
-Just clone the repo and hit the run button!
+From Flathub, `flatpak-builder` installs the GNOME 49 SDK and the Rust extension, then builds and installs the app:
 
-You can get Builder from [here](https://wiki.gnome.org/Apps/Builder/Downloads), and the Rust Nightly Flatpak SDK (if necessary) from [here](https://haeckerfelix.de/~repo/).
+```bash
+flatpak-builder --user --install-deps-from=flathub --force-clean --install build-dir build-aux/io.github.ivan_khludov.metronome.json
+flatpak run io.github.ivan_khludov.metronome
+```
 
-## Code Of Conduct
+## Support
 
-We follow the [GNOME Code of Conduct](/CODE_OF_CONDUCT.md).
-All communications in project spaces are expected to follow it.
+If this project helps you, optional tips in **USDT (Tron / TRC-20)** are welcome:
+
+<p align="left">
+  <img src="data/qr.png" alt="USDT TRC-20 QR code" width="200" />
+</p>
+
+**Address (TRC-20 / Tron):**
+
+```
+TNrPGfU3HqtfMPmmhdvrJsQng7Ck9fian4
+```
+
+Send **only** USDT over the **Tron network** to this address; using other chains can mean lost funds.
+
+## Author
+
+**Ivan Khludov** — [ivan.khludov.dev@gmail.com](mailto:ivan.khludov.dev@gmail.com)
+
+Upstream Metronome is by Adrien Plazas, Clara Hobbs, FineFindus, and other contributors.
+
+## License
+
+Licensed under the [GNU General Public License v3.0 or later](COPYING).

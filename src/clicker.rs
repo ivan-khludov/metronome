@@ -1,8 +1,8 @@
 use adw::subclass::prelude::*;
 use gtk::glib;
 
-static AUDIO_CLICKER_HIGH_URI: &str = "resource:///com/adrienplazas/Metronome/audio/clicker-high.ogg";
-static AUDIO_CLICKER_LOW_URI: &str = "resource:///com/adrienplazas/Metronome/audio/clicker-low.ogg";
+static AUDIO_CLICKER_HIGH_URI: &str = "resource:///io/github/ivan_khludov/metronome/audio/clicker-high.ogg";
+static AUDIO_CLICKER_LOW_URI: &str = "resource:///io/github/ivan_khludov/metronome/audio/clicker-low.ogg";
 
 mod imp {
     use super::*;

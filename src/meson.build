@@ -30,7 +30,17 @@ else
   message('Building in debug mode')
 endif
 
-cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'cargo-home' ]
+# force-clean otherwise leaves cargo with an empty cache, and it stalls
+# while refreshing the crates.io index. Reuse the cache already next to
+# the sources and do not touch the network.
+fs = import('fs')
+source_cargo_home = meson.project_source_root() / '.cargo-home'
+if fs.exists(source_cargo_home / 'registry')
+  cargo_env = [ 'CARGO_HOME=' + source_cargo_home ]
+  cargo_options += [ '--offline', '--locked' ]
+else
+  cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'cargo-home' ]
+endif
 
 custom_target(
   'cargo-build',
