@@ -58,8 +58,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/ivan-khludov/metronome.git",
-                    "tag": "v2.0.2",
-                    "commit": "4afa6621d3a842534efd9f9a2442449def74effc"
+                    "tag": "v2.0.3",
+                    "commit": "19248dcde0449237ce5c1742cd2d394c7a5b14dc"
                 },
                 "cargo-sources.json"
             ]
