@@ -18,14 +18,11 @@
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "build-args": [
-            "--share=network"
-        ],
         "test-args": [
-            "--socket=x11",
-            "--share=network"
+            "--socket=x11"
         ],
         "env": {
+            "CARGO_NET_OFFLINE": "true",
             "RUST_BACKTRACE": "1"
         }
     },
@@ -52,7 +49,8 @@
                 {
                     "type": "dir",
                     "path": "../"
-                }
+                },
+                "cargo-sources.json"
             ]
         }
     ]

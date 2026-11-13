@@ -19,7 +19,7 @@ This is a modified version of [GNOME Metronome](https://gitlab.gnome.org/World/m
 
 ## Building
 
-From Flathub, `flatpak-builder` installs the GNOME 49 SDK and the Rust extension, then builds and installs the app:
+From Flathub, `flatpak-builder` installs the GNOME 51 SDK and the Rust extension, then builds and installs the app:
 
 ```bash
 flatpak-builder --user --install-deps-from=flathub --force-clean --install build-dir build-aux/io.github.ivan_khludov.metronome.json

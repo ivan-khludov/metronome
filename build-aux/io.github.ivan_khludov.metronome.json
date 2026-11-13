@@ -1,7 +1,7 @@
 {
     "id": "io.github.ivan_khludov.metronome",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "49",
+    "runtime-version": "51",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -16,9 +16,9 @@
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "build-args": [
-            "--share=network"
-        ]
+        "env": {
+            "CARGO_NET_OFFLINE": "true"
+        }
     },
     "cleanup": [
         "/include",
@@ -52,7 +52,8 @@
                 {
                     "type": "dir",
                     "path": "../"
-                }
+                },
+                "cargo-sources.json"
             ]
         }
     ]

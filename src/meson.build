@@ -30,12 +30,16 @@ else
   message('Building in debug mode')
 endif
 
-# force-clean otherwise leaves cargo with an empty cache, and it stalls
-# while refreshing the crates.io index. Reuse the cache already next to
-# the sources and do not touch the network.
+# Flatpak extracts cargo-sources.json into cargo/ and writes cargo/config.
+# That build must stay offline. A local .cargo-home cache is the same idea
+# outside Flatpak. Neither path is allowed to refresh the crates.io index.
 fs = import('fs')
+vendor_cargo_home = meson.project_source_root() / 'cargo'
 source_cargo_home = meson.project_source_root() / '.cargo-home'
-if fs.exists(source_cargo_home / 'registry')
+if fs.exists(vendor_cargo_home / 'config')
+  cargo_env = [ 'CARGO_HOME=' + vendor_cargo_home ]
+  cargo_options += [ '--offline', '--locked' ]
+elif fs.exists(source_cargo_home / 'registry')
   cargo_env = [ 'CARGO_HOME=' + source_cargo_home ]
   cargo_options += [ '--offline', '--locked' ]
 else

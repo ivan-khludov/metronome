@@ -37,13 +37,6 @@ window.metronome scale:focus {
   outline: none;
 }
 
-button,
-button *,
-menubutton,
-menubutton * {
-  cursor: pointer;
-}
-
 window.metronome .titlebar,
 window.metronome headerbar {
   background-color: #202228;
@@ -126,7 +119,6 @@ window.metronome button.window-control.close:hover {
 }
 
 .app-column {
-  overflow: visible;
   padding: 28px;
 }
 
@@ -319,7 +311,6 @@ window.metronome .tempo-card scale mark label {
 }
 
 .controls {
-  overflow: visible;
   padding: 4px 16px 0 16px;
 }
 
@@ -350,7 +341,6 @@ window.metronome timerbutton {
   background-color: transparent;
   min-height: 80px;
   min-width: 80px;
-  overflow: visible;
 }
 
 window.metronome timerbutton stack {
