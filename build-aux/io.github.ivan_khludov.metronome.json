@@ -14,12 +14,6 @@
         "--socket=pulseaudio",
         "--socket=wayland"
     ],
-    "build-options": {
-        "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "env": {
-            "CARGO_NET_OFFLINE": "true"
-        }
-    },
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
@@ -33,6 +27,12 @@
         "/lib/girepository-1.0",
         "/share/gir-1.0"
     ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "CARGO_NET_OFFLINE": "true"
+        }
+    },
     "modules": [
         {
             "name": "blueprint-compiler",
@@ -48,6 +48,11 @@
         {
             "name": "metronome",
             "buildsystem": "meson",
+            "license-files": [
+                "COPYING",
+                "data/fonts/OFL-Inter.txt",
+                "data/fonts/OFL-JetBrainsMono.txt"
+            ],
             "sources": [
                 {
                     "type": "dir",

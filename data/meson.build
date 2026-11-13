@@ -10,6 +10,11 @@ install_data(
   'fonts/JetBrainsMono-Bold.ttf',
   install_dir: pkgdatadir / 'fonts'
 )
+install_data(
+  'fonts/OFL-Inter.txt',
+  'fonts/OFL-JetBrainsMono.txt',
+  install_dir: datadir / 'licenses' / application_id
+)
 # Desktop file
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
